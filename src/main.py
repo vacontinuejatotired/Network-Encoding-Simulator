@@ -1,4 +1,3 @@
-
 import matplotlib.pyplot as plt
 import sys
 import os
@@ -11,5 +10,8 @@ import NetWorkTest_Encoding_Simulator as mt
 
 if __name__ == "__main__":
     s = input("请输入数据: ")
+    # 过滤非 0/1 字符并转换为整数列表
     data = [int(ch) for ch in s if ch in '01']
-    mt.NRC(data)
+    
+    # 调用曼彻斯特编码方法
+    mt.Manchester(data)
