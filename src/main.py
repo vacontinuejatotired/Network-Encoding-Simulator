@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+
 import sys
 import os
 
@@ -7,11 +7,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'method'))
 
 # 导入具体的模块文件
 import NetWorkTest_Encoding_Simulator as mt
-
+# 入口：输入一串0和1
 if __name__ == "__main__":
-    s = input("请输入数据: ")
-    # 过滤非 0/1 字符并转换为整数列表
+    s = input("请输入二进制比特串（如 11010010）: ")
     data = [int(ch) for ch in s if ch in '01']
-    
-    # 调用曼彻斯特编码方法
-    mt.Manchester(data)
+    mt.plot_all(data)
