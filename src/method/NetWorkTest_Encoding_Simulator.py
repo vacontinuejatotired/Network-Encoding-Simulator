@@ -48,16 +48,18 @@ def nrc(data, ax):
                 color='blue' if bit == 1 else 'red')
 
 
-# 曼彻斯特：1是低->高（上升沿），0是高->低（下降沿）
+# 曼彻斯特：0是低->高（上升沿），1是高->低（下降沿）
 def manchester(data, ax):
-    ax.set_title('Manchester - 蓝1红0')
+    ax.set_title('Manchester - 0=上升沿 1=下降沿')
     prev_end = None
     for i in range(len(data)):
         if data[i] == 1:
-            start, end = 0, 1
+            # 1：高 → 低（下降沿）
+            start, end = 1, 0
             color = 'blue'
         else:
-            start, end = 1, 0
+            # 0：低 → 高（上升沿）
+            start, end = 0, 1
             color = 'red'
         
         # 跟前一个bit的尾巴对不上就加竖线
@@ -84,10 +86,9 @@ def manchester(data, ax):
         ax.text(i + 0.5, -0.4, str(bit), ha='center', fontsize=10,
                 color='blue' if bit == 1 else 'red')
 
-
 # 差分曼彻斯特：每个bit中间必跳，开始处跳变=0，不跳=1
 def diff_manchester(data, ax):
-    ax.set_title('Differential Manchester - 蓝1红0')
+    ax.set_title('Differential Manchester - 蓝1红0,假设前置1电平')
     prev_level = 1      # 假设上一条尾巴是高电平
     prev_end = prev_level
     
