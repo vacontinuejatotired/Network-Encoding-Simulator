@@ -172,7 +172,9 @@ def decode_nrz(signal,per_bit=16):
     print("NRZ解码:", signal)
     print("样本采样点个数",per_bit)
     bits =[]
+    # 遍历每个区域中间值判断是否为0或1
     for i in range(0,len(signal),per_bit):
+        # 判断区域中间是否为0或1，如果是0则为0，如果是1则为1
         if signal[i+per_bit//2] == 0:
             print("0")
             bits.append(0)
