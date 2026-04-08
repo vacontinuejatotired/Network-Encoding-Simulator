@@ -166,30 +166,3 @@ def rz(data, ax):
     for i, bit in enumerate(data):
         ax.text(i + 0.5, -1.3, str(bit), ha='center', fontsize=10,
                 color='blue' if bit == 1 else 'red')
-
-#有点漏洞，并不是检查区域是否为0或1，而是检查中间是否为0或1，所以可能会出错
-def decode_nrz(signal,per_bit=16):
-    print("NRZ解码:", signal)
-    print("样本采样点个数",per_bit)
-    bits =[]
-    # 遍历每个区域中间值判断是否为0或1
-    for i in range(0,len(signal),per_bit):
-        # 判断区域中间是否为0或1，如果是0则为0，如果是1则为1
-        if signal[i+per_bit//2] == 0:
-            print("0")
-            bits.append(0)
-        elif signal[i+per_bit//2] == 1 :
-            print("1")
-            bits.append(1)
-    print(bits)
-    return bits
-
-def decode_rz(signal,per_bit=16):
-    print("RZ解码:", signal)
-    print("样本采样点个数",per_bit)
-    return bits
-
-if __name__ == "__main__":
-    s = input("请输入二进制比特串（如 11010010）: ")
-    data = [int(ch) for ch in s if ch in '01']
-    print("解码结果",decode_nrz(data))
