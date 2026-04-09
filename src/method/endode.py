@@ -24,7 +24,7 @@ def plot_all(data,sample_nums=10):
 # 不归零码：1蓝高，0红低
 def nrz(data, ax, sample_nums=10):
     # 写标题
-    ax.set_title('NRZ(不归零码) - 蓝1红0')
+    ax.set_title('NRZ(不归零码)')
     
     # 生成采样点序列
     time_points = []
