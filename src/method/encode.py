@@ -162,7 +162,7 @@ def manchester(data, ax, sample_nums=10):  # 参数同上
 # 差分曼彻斯特编码：每位中心必有跳变，bit边界有跳变代表0，无跳变代表1，差分编码看相对变化
 def diff_manchester(data, ax, sample_nums=10):
     # 标题注明编码规则和假设的初始电平
-    ax.set_title('Differential Manchester - 蓝1红0, 假设前置电平=1')
+    ax.set_title('Differential Manchester - 假设前置电平=1')
     
     # 准备列表
     time_points = []
@@ -247,7 +247,7 @@ def diff_manchester(data, ax, sample_nums=10):
 # 归零码：1是正脉冲（高电平），0是负脉冲（低电平），每个bit中间都回到零，四等分结构
 def rz(data, ax, sample_nums=10):
     # 标题说明编码规则：四等分，正负脉冲，归零
-    ax.set_title('RZ (Return to Zero) - 蓝1正脉冲(+1), 红0负脉冲(-1), 四等分')
+    ax.set_title('RZ (Return to Zero) - 1正脉冲(+1), 0负脉冲(-1), 四等分')
     
     # 准备列表
     time_points = []

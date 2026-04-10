@@ -1,7 +1,7 @@
 
 import sys
 import os
-import method.endode as mt
+import method.encode as mt
 # 将 src/method 目录添加到模块搜索路径
 sys.path.append(os.path.join(os.path.dirname(__file__), 'method'))
 
